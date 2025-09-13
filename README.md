@@ -1,73 +1,37 @@
-# Welcome to your Lovable project
+# 👨‍🍳 Chef It Up
 
-## Project info
+A personalized meal suggestion platform powered by **OpenAI** and **PostgreSQL**, designed to recommend tailored recipes for users based on preferences and dietary needs.  
 
-**URL**: https://lovable.dev/projects/39856b8e-0f01-4a2c-bb70-8d3af628d642
+Built with a modern **React frontend**, a **Node.js/Express.js backend**, and a **serverless AWS infrastructure** to ensure scalable, low-latency performance.  
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🌟 Highlights
+- 🍽️ **Personalized recipes**: AI-powered meal suggestions tuned to user preferences  
+- ⚡ **Optimized performance**: PostgreSQL schema with **B-tree indexing** and query optimization  
+- ☁️ **Serverless backend**: AWS API Gateway + Lambda for fast, cost-efficient scaling  
+- 🎨 **Smooth UI**: Built with React for an intuitive and responsive experience  
+- 👥 **Real-world usage**: Successfully tested with 30+ users  
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/39856b8e-0f01-4a2c-bb70-8d3af628d642) and start prompting.
+## ℹ️ Overview
+Chef It Up makes meal planning easier by combining the power of **OpenAI** with a fast, optimized data pipeline.  
 
-Changes made via Lovable will be committed automatically to this repo.
+Users get personalized recipe suggestions, while the backend leverages efficient query design and a serverless architecture for speed and reliability.  
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+- Node.js v18+  
+- npm v9+  
+- PostgreSQL 14+  
+- AWS CLI configured (for Lambda deployment)  
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/39856b8e-0f01-4a2c-bb70-8d3af628d642) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Local Development
+1. Clone the repository:
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd chef-it-up
