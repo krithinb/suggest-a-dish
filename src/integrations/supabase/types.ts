@@ -14,7 +14,285 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      dietary_restrictions: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      ingredients: {
+        Row: {
+          category: string | null
+          created_at: string
+          id: string
+          name: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          id?: string
+          name: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      recipe_ingredients: {
+        Row: {
+          created_at: string
+          id: string
+          ingredient_id: string
+          quantity: string | null
+          recipe_id: string
+          unit: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          ingredient_id: string
+          quantity?: string | null
+          recipe_id: string
+          unit?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          ingredient_id?: string
+          quantity?: string | null
+          recipe_id?: string
+          unit?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recipe_ingredients_ingredient_id_fkey"
+            columns: ["ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "ingredients"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recipe_ingredients_recipe_id_fkey"
+            columns: ["recipe_id"]
+            isOneToOne: false
+            referencedRelation: "recipes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recipes: {
+        Row: {
+          cook_time: number | null
+          created_at: string
+          cuisine_type: string | null
+          description: string | null
+          difficulty_level: string | null
+          generated_by_ai: boolean | null
+          id: string
+          instructions: string
+          prep_time: number | null
+          servings: number | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          cook_time?: number | null
+          created_at?: string
+          cuisine_type?: string | null
+          description?: string | null
+          difficulty_level?: string | null
+          generated_by_ai?: boolean | null
+          id?: string
+          instructions: string
+          prep_time?: number | null
+          servings?: number | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          cook_time?: number | null
+          created_at?: string
+          cuisine_type?: string | null
+          description?: string | null
+          difficulty_level?: string | null
+          generated_by_ai?: boolean | null
+          id?: string
+          instructions?: string
+          prep_time?: number | null
+          servings?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_dietary_preferences: {
+        Row: {
+          created_at: string
+          dietary_restriction_id: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          dietary_restriction_id: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          dietary_restriction_id?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_dietary_preferences_dietary_restriction_id_fkey"
+            columns: ["dietary_restriction_id"]
+            isOneToOne: false
+            referencedRelation: "dietary_restrictions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_dietary_preferences_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      user_ingredient_preferences: {
+        Row: {
+          created_at: string
+          id: string
+          ingredient_id: string
+          preference_type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          ingredient_id: string
+          preference_type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          ingredient_id?: string
+          preference_type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_ingredient_preferences_ingredient_id_fkey"
+            columns: ["ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "ingredients"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_ingredient_preferences_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      user_recipe_interactions: {
+        Row: {
+          created_at: string
+          id: string
+          interaction_type: string
+          notes: string | null
+          rating: number | null
+          recipe_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          interaction_type: string
+          notes?: string | null
+          rating?: number | null
+          recipe_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          interaction_type?: string
+          notes?: string | null
+          rating?: number | null
+          recipe_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_recipe_interactions_recipe_id_fkey"
+            columns: ["recipe_id"]
+            isOneToOne: false
+            referencedRelation: "recipes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_recipe_interactions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
